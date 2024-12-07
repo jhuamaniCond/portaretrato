@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./PhotoFrame.css";
+import { ReactComponent as IconChange } from '../icons/change.svg';
+import { ReactComponent as IconEdit } from '../icons/edit.svg';
+import { ReactComponent as IconEffect } from '../icons/effects.svg';
+import { ReactComponent as IconSticker } from '../icons/sticker.svg';
 
 const PhotoFrame = () => {
   const [time, setTime] = useState(new Date());
@@ -126,24 +130,15 @@ const PhotoFrame = () => {
             <div className="description">{weather.description}</div>
           </div>
         </div>
-        <button className="menu-button" onClick={() => setIsModalOpen(true)}>
-          Cambiar Imagen
-        </button>
-        <button
-          className="menu-button edit-button"
-          onClick={() => setIsEditPanelOpen(!isEditPanelOpen)}
-        >
-          Modificar Imagen
-        </button>
-        <button className="menu-button adorn-button" onClick={toggleAdorns}>
-          Adornos
-        </button>
-        <button
-          className="menu-button sticker-button"
-          onClick={() => setIsStickerPanelOpen(true)}
-        >
-          Agregar Sticker
-        </button>
+        <div className="containerButtons">
+            <IconChange className="menu-button" onClick={() => setIsModalOpen(true)}/>
+            <IconEdit className="menu-button" onClick={() => setIsEditPanelOpen(!isEditPanelOpen)}/>
+            <IconEffect className="menu-button" onClick={toggleAdorns}/>
+            <IconSticker className="menu-button" onClick={() => setIsStickerPanelOpen(true)}/>
+        </div>
+        
+        
+
         {isEditPanelOpen && (
           <div className="edit-panel">
             <h4>Editar Imagen</h4>
