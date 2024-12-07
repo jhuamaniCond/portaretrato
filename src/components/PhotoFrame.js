@@ -99,9 +99,17 @@ const PhotoFrame = () => {
         className="blur-background"
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          filter: `brightness(${adjustments.brightness}%) saturate(${adjustments.saturation}%) contrast(${adjustments.contrast}%)`,
+          filter: `blur(20px) brightness(${adjustments.brightness}%) saturate(${adjustments.saturation}%) contrast(${adjustments.contrast}%)`,
         }}
       ></div>
+      {adornEffect && (
+          <div
+            className="effectBackground"
+            style={{
+              backgroundImage: `url(/gifs-background/${adornEffect}.gif)`,
+            }}
+          ></div>
+        )}
       <div
         className="photo-content"
         style={{
@@ -174,14 +182,7 @@ const PhotoFrame = () => {
             </label>
           </div>
         )}
-        {adornEffect && (
-          <div
-            className="effectBackground"
-            style={{
-              backgroundImage: `url(/gifs-background/${adornEffect}.gif)`,
-            }}
-          ></div>
-        )}
+        
         {stickers.map((sticker) => (
           <img
             key={sticker.id}
