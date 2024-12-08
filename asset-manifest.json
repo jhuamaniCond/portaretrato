@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/portaretrato/static/css/main.411f0c67.css",
+    "main.js": "/portaretrato/static/js/main.8f2c0dd5.js",
+    "static/js/453.65a4a8ca.chunk.js": "/portaretrato/static/js/453.65a4a8ca.chunk.js",
+    "static/media/effects.svg": "/portaretrato/static/media/effects.19e0f009e70bddde25657efaff1753f5.svg",
+    "static/media/change.svg": "/portaretrato/static/media/change.865a36e6493688d857dc951ec676261d.svg",
+    "static/media/edit.svg": "/portaretrato/static/media/edit.85b6c68679153a208542109721af60ec.svg",
+    "static/media/sun.svg": "/portaretrato/static/media/sun.d1d30352ced39f312192ff86c6537d65.svg",
+    "static/media/stop.svg": "/portaretrato/static/media/stop.58b400c3f75cd3ae14ce6ebe9d3c3d92.svg",
+    "static/media/sticker.svg": "/portaretrato/static/media/sticker.2deafe86e0589b581c48826dc9620371.svg",
+    "static/media/play.svg": "/portaretrato/static/media/play.0337f05884d3ae7c94bfdbdabdf5d803.svg",
+    "static/media/reset.svg": "/portaretrato/static/media/reset.c37539c68bdf946f3056c73c8a2fb0b7.svg",
+    "index.html": "/portaretrato/index.html",
+    "main.411f0c67.css.map": "/portaretrato/static/css/main.411f0c67.css.map",
+    "main.8f2c0dd5.js.map": "/portaretrato/static/js/main.8f2c0dd5.js.map",
+    "453.65a4a8ca.chunk.js.map": "/portaretrato/static/js/453.65a4a8ca.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.411f0c67.css",
+    "static/js/main.8f2c0dd5.js"
+  ]
+}
