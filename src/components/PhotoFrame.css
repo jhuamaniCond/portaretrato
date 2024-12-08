@@ -44,6 +44,7 @@ html {
 }
 
 .info-container {
+    color: white;
   position: absolute;
   top: 10%;
   right: 5%;
@@ -51,7 +52,7 @@ html {
 }
 
 .time {
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: bold;
 }
 
@@ -60,7 +61,7 @@ html {
 }
 
 .weather .temperature {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 .weather .description {
@@ -93,7 +94,7 @@ background-color: rgba(34, 31, 31, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 4;
+    z-index: 24;
   }
   
   .modal-content {
@@ -151,7 +152,7 @@ background-color: rgba(34, 31, 31, 0.6);
     color: white;
     border-radius: 10px;
     padding: 15px;
-    z-index: 3;
+    z-index: 23;
 
     width: 250px;
   }
@@ -196,21 +197,26 @@ background-color: rgba(34, 31, 31, 0.6);
   .active-sticker {
     position: absolute;
     cursor: move;
-    z-index: 4;
+    z-index: 24;
     border: 3px solid rgba(29, 121, 207, 0.411);
   }
 
   
   .sticker {
     position: absolute;
+    z-index: 24;
   }
   
 .containerButtons{
-    padding: 30px;
+    top: 0;
+    position: absolute;
+    padding: 20px;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    z-index: 13;
 
 }
 .shadows{
@@ -230,4 +236,9 @@ background-color: rgba(34, 31, 31, 0.6);
     justify-content: center;
     text-align: center;
     font-size: 18px;
+}
+
+.sun{
+    width: 250px;
+    height: 250px;
 }
