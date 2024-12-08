@@ -106,6 +106,11 @@ const PhotoFrame = () => {
           filter: `blur(20px) brightness(${adjustments.brightness}%) saturate(${adjustments.saturation}%) contrast(${adjustments.contrast}%)`,
         }}
       ></div>
+      <div
+        className="shadows"
+      >
+      
+      </div>
       {adornEffect && (
           <div
             className="effectBackground"

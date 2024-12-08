@@ -12,6 +12,7 @@ html {
   height: 100vh;
   background-color: #000; /* Fondo negro */
   overflow: hidden;
+ 
 }
 
 .blur-background {
@@ -151,7 +152,7 @@ background-color: rgba(34, 31, 31, 0.6);
     border-radius: 10px;
     padding: 15px;
     z-index: 3;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
     width: 250px;
   }
   
@@ -211,4 +212,22 @@ background-color: rgba(34, 31, 31, 0.6);
     flex-direction: column;
     justify-content: space-around;
 
+}
+.shadows{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(
+    to right, 
+    rgba(0, 0, 0, 0.5) 0%,         /* Inicio oscuro */
+    rgba(0, 0, 0, 0) 20%,         /* Transición izquierda */
+    rgba(0, 0, 0, 0) 80%,         /* Transición derecha */
+    rgba(0, 0, 0, 0.5) 100%       /* Final oscuro */
+  );
+    color: white; /* Texto visible sobre el fondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
 }
