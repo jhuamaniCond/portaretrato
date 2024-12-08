@@ -25,7 +25,7 @@ html {
   background-position: center;
   background-repeat: repeat;
   filter: blur(20px); /* Aplicar borrosidad */
-
+  transition: background-image 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
 
 .photo-content {
@@ -41,6 +41,7 @@ html {
   justify-content: space-between;
   color: white;
   font-family: Arial, sans-serif;
+  transition: background-image 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
 
 .info-container {
@@ -215,7 +216,7 @@ background-color: rgba(34, 31, 31, 0.6);
 .containerButtons{
     top: 0;
     position: absolute;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -245,4 +246,8 @@ background-color: rgba(34, 31, 31, 0.6);
 .sun{
     width: 250px;
     height: 250px;
+}
+.logo{
+  width: 150px;
+  height: 150px;
 }

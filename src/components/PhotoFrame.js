@@ -7,6 +7,7 @@ import { ReactComponent as IconSticker } from '../icons/sticker.svg';
 import { ReactComponent as IconSun } from '../icons/sun.svg';
 import { ReactComponent as IconPlay } from '../icons/play.svg';
 import { ReactComponent as IconStop } from '../icons/stop.svg';
+import { ReactComponent as IconReset } from '../icons/reset.svg';
 
 const PhotoFrame = () => {
   const [time, setTime] = useState(new Date());
@@ -24,20 +25,7 @@ const PhotoFrame = () => {
   const [stickers, setStickers] = useState([]);
   const [activeSticker, setActiveSticker] = useState(null);
   const [isPlaying,setIsPlaying]=useState(false);
-  const [adjustments, setAdjustments] = useState({
-    brightness: 100,
-    saturation: 100,
-    contrast: 100,
-  });
-  const intervalRef = useRef(null);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const images = [
+  const [images, setImages] = useState([
     "/photos/photo1.jpg?text=Image+1",
     "/photos/photo2.jpg?text=Image+2",
     "/photos/photo3.jpg?text=Image+3",
@@ -50,8 +38,24 @@ const PhotoFrame = () => {
     "/photos/photo10.jpg?text=Image+10",
     "/photos/photo11.jpg?text=Image+11",
     "/photos/photo12.jpg?text=Image+12",
-    "/photos/photo12.jpg?text=Image+12",
-  ];
+    "/photos/photo13.webp?text=Image+13",
+    "/photos/photo14.jpg?text=Image+14",
+    "/photos/photo15.jpg?text=Image+15",
+    "/photos/photo16.jpg?text=Image+16",
+    "/photos/photo17.jpg?text=Image+17",
+  ])
+  const [adjustments, setAdjustments] = useState({
+    brightness: 100,
+    saturation: 100,
+    contrast: 100,
+  });
+  const intervalRef = useRef(null);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const stickerOptions = [
     "/stickers/s1.gif",
@@ -132,6 +136,26 @@ const PhotoFrame = () => {
       clearInterval(intervalRef.current); // Limpia el intervalo
     }
   };
+
+  const resetParameters =()=>{
+    setAdornEffect("")
+    setStickers([])
+    setAdjustments({
+        brightness: 100,
+        saturation: 100,
+        contrast: 100,
+      })
+  }
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImages([...images, e.target.result]); // Añade la imagen al array
+      };
+      reader.readAsDataURL(file); // Convierte el archivo en una URL base64
+    }
+  };
   return (
     <div className="photo-frame" onMouseMove={handleStickerMove}>
       <div
@@ -162,6 +186,8 @@ const PhotoFrame = () => {
         }}
       ></div>
     <div className="info-container">
+      <img src="/logo.png"  className="logo"/>
+      
         <div className="time">
         {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
         </div>
@@ -176,6 +202,7 @@ const PhotoFrame = () => {
         <IconEdit className="menu-button" onClick={() => setIsEditPanelOpen(!isEditPanelOpen)}/>
         <IconEffect className="menu-button" onClick={toggleAdorns}/>
         <IconSticker className="menu-button" onClick={() => setIsStickerPanelOpen(true)}/>
+        <IconReset className="menu-button" onClick={resetParameters}/>
         {isPlaying ? <IconStop className="menu-button" onClick={stopPlayImages}></IconStop> : <IconPlay className="menu-button" onClick={playImages}></IconPlay>}
     </div>
     
@@ -270,6 +297,14 @@ const PhotoFrame = () => {
             />
             ))}
         </div>
+        {/* Subir nueva imagen desde el dispositivo */}
+        <div className="add-image">
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileUpload}
+          />
+          </div>
         <button
             className="close-modal"
             onClick={() => setIsModalOpen(false)}
