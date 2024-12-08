@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portaretrato/static/css/main.411f0c67.css",
-    "main.js": "/portaretrato/static/js/main.de5dd809.js",
+    "main.js": "/portaretrato/static/js/main.59d217bb.js",
     "static/js/453.65a4a8ca.chunk.js": "/portaretrato/static/js/453.65a4a8ca.chunk.js",
     "static/media/effects.svg": "/portaretrato/static/media/effects.19e0f009e70bddde25657efaff1753f5.svg",
     "static/media/change.svg": "/portaretrato/static/media/change.865a36e6493688d857dc951ec676261d.svg",
@@ -13,11 +13,11 @@
     "static/media/reset.svg": "/portaretrato/static/media/reset.c37539c68bdf946f3056c73c8a2fb0b7.svg",
     "index.html": "/portaretrato/index.html",
     "main.411f0c67.css.map": "/portaretrato/static/css/main.411f0c67.css.map",
-    "main.de5dd809.js.map": "/portaretrato/static/js/main.de5dd809.js.map",
+    "main.59d217bb.js.map": "/portaretrato/static/js/main.59d217bb.js.map",
     "453.65a4a8ca.chunk.js.map": "/portaretrato/static/js/453.65a4a8ca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.411f0c67.css",
-    "static/js/main.de5dd809.js"
+    "static/js/main.59d217bb.js"
   ]
 }
