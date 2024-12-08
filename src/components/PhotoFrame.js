@@ -16,7 +16,7 @@ const PhotoFrame = () => {
     description: "Soleado",
   });
   const [backgroundImage, setBackgroundImage] = useState(
-    "/photos/photo1.jpg"
+    `${process.env.PUBLIC_URL}/photos/photo1.jpg`
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditPanelOpen, setIsEditPanelOpen] = useState(false);
@@ -26,23 +26,23 @@ const PhotoFrame = () => {
   const [activeSticker, setActiveSticker] = useState(null);
   const [isPlaying,setIsPlaying]=useState(false);
   const [images, setImages] = useState([
-    "/photos/photo1.jpg?text=Image+1",
-    "/photos/photo2.jpg?text=Image+2",
-    "/photos/photo3.jpg?text=Image+3",
-    "/photos/photo4.jpg?text=Image+4",
-    "/photos/photo5.jpg?text=Image+5",
-    "/photos/photo6.jpg?text=Image+6",
-    "/photos/photo7.jpg?text=Image+7",
-    "/photos/photo8.jpg?text=Image+8",
-    "/photos/photo9.jpg?text=Image+9",
-    "/photos/photo10.jpg?text=Image+10",
-    "/photos/photo11.jpg?text=Image+11",
-    "/photos/photo12.jpg?text=Image+12",
-    "/photos/photo13.webp?text=Image+13",
-    "/photos/photo14.jpg?text=Image+14",
-    "/photos/photo15.jpg?text=Image+15",
-    "/photos/photo16.jpg?text=Image+16",
-    "/photos/photo17.jpg?text=Image+17",
+    `${process.env.PUBLIC_URL}/photos/photo1.jpg?text=Image+1`,
+    `${process.env.PUBLIC_URL}/photos/photo2.jpg?text=Image+2`,
+    `${process.env.PUBLIC_URL}/photos/photo3.jpg?text=Image+3`,
+    `${process.env.PUBLIC_URL}/photos/photo4.jpg?text=Image+4`,
+    `${process.env.PUBLIC_URL}/photos/photo5.jpg?text=Image+5`,
+    `${process.env.PUBLIC_URL}/photos/photo6.jpg?text=Image+6`,
+    `${process.env.PUBLIC_URL}/photos/photo7.jpg?text=Image+7`,
+    `${process.env.PUBLIC_URL}/photos/photo8.jpg?text=Image+8`,
+    `${process.env.PUBLIC_URL}/photos/photo9.jpg?text=Image+9`,
+    `${process.env.PUBLIC_URL}/photos/photo10.jpg?text=Image+10`,
+    `${process.env.PUBLIC_URL}/photos/photo11.jpg?text=Image+11`,
+    `${process.env.PUBLIC_URL}/photos/photo12.jpg?text=Image+12`,
+    `${process.env.PUBLIC_URL}/photos/photo13.webp?text=Image+13`,
+    `${process.env.PUBLIC_URL}/photos/photo14.jpg?text=Image+14`,
+    `${process.env.PUBLIC_URL}/photos/photo15.jpg?text=Image+15`,
+    `${process.env.PUBLIC_URL}/photos/photo16.jpg?text=Image+16`,
+    `${process.env.PUBLIC_URL}/photos/photo17.jpg?text=Image+17`,
   ])
   const [adjustments, setAdjustments] = useState({
     brightness: 100,
@@ -58,18 +58,18 @@ const PhotoFrame = () => {
   }, []);
 
   const stickerOptions = [
-    "/stickers/s1.gif",
-    "/stickers/s2.gif",
-    "/stickers/s3.gif",
-    "/stickers/s4.gif",
-    "/stickers/s5.gif",
-    "/stickers/s6.gif",
-    "/stickers/s7.gif",
-    "/stickers/s8.gif",
-    "/stickers/s9.gif",
-    "/stickers/s10.gif",
-    "/stickers/s11.gif",
-    "/stickers/s12.gif",
+    `${process.env.PUBLIC_URL}/stickers/s1.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s2.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s3.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s4.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s5.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s6.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s7.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s8.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s9.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s10.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s11.gif`,
+    `${process.env.PUBLIC_URL}/stickers/s12.gif`,
   ];
 
   const handleImageSelect = (image) => {
@@ -174,7 +174,7 @@ const PhotoFrame = () => {
           <div
             className="effectBackground"
             style={{
-              backgroundImage: `url(/gifs-background/${adornEffect}.gif)`,
+              backgroundImage: `url(${process.env.PUBLIC_URL}/gifs-background/${adornEffect}.gif)`,
             }}
           ></div>
         )}
@@ -186,7 +186,7 @@ const PhotoFrame = () => {
         }}
       ></div>
     <div className="info-container">
-      <img src="/logo.png"  className="logo"/>
+      <img src={`${process.env.PUBLIC_URL}/logo.png`}  className="logo"/>
       
         <div className="time">
         {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
