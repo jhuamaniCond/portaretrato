@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef  } from "react";
 import "./PhotoFrame.css";
 import { ReactComponent as IconChange } from '../icons/change.svg';
 import { ReactComponent as IconEdit } from '../icons/edit.svg';
 import { ReactComponent as IconEffect } from '../icons/effects.svg';
 import { ReactComponent as IconSticker } from '../icons/sticker.svg';
 import { ReactComponent as IconSun } from '../icons/sun.svg';
+import { ReactComponent as IconPlay } from '../icons/play.svg';
+import { ReactComponent as IconStop } from '../icons/stop.svg';
 
 const PhotoFrame = () => {
   const [time, setTime] = useState(new Date());
@@ -21,13 +23,13 @@ const PhotoFrame = () => {
   const [isStickerPanelOpen, setIsStickerPanelOpen] = useState(false);
   const [stickers, setStickers] = useState([]);
   const [activeSticker, setActiveSticker] = useState(null);
-
+  const [isPlaying,setIsPlaying]=useState(false);
   const [adjustments, setAdjustments] = useState({
     brightness: 100,
     saturation: 100,
     contrast: 100,
   });
-
+  const intervalRef = useRef(null);
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(new Date());
@@ -38,14 +40,32 @@ const PhotoFrame = () => {
   const images = [
     "/photos/photo1.jpg?text=Image+1",
     "/photos/photo2.jpg?text=Image+2",
-    "https://via.placeholder.com/1200x800?text=Image+3",
-    "https://via.placeholder.com/1200x800?text=Image+4",
+    "/photos/photo3.jpg?text=Image+3",
+    "/photos/photo4.jpg?text=Image+4",
+    "/photos/photo5.jpg?text=Image+5",
+    "/photos/photo6.jpg?text=Image+6",
+    "/photos/photo7.jpg?text=Image+7",
+    "/photos/photo8.jpg?text=Image+8",
+    "/photos/photo9.jpg?text=Image+9",
+    "/photos/photo10.jpg?text=Image+10",
+    "/photos/photo11.jpg?text=Image+11",
+    "/photos/photo12.jpg?text=Image+12",
+    "/photos/photo12.jpg?text=Image+12",
   ];
 
   const stickerOptions = [
-    "https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif",
-    "https://media.giphy.com/media/26xBukhKmwWzD8NqA/giphy.gif",
-    "https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif",
+    "/stickers/s1.gif",
+    "/stickers/s2.gif",
+    "/stickers/s3.gif",
+    "/stickers/s4.gif",
+    "/stickers/s5.gif",
+    "/stickers/s6.gif",
+    "/stickers/s7.gif",
+    "/stickers/s8.gif",
+    "/stickers/s9.gif",
+    "/stickers/s10.gif",
+    "/stickers/s11.gif",
+    "/stickers/s12.gif",
   ];
 
   const handleImageSelect = (image) => {
@@ -95,7 +115,23 @@ const PhotoFrame = () => {
       }));
     }
   };
+  const playImages = () => {
+    if (!isPlaying) {
+      setIsPlaying(true);
+      let currentIndex = images.indexOf(backgroundImage);
 
+      intervalRef.current = setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length; // Ciclo infinito de imágenes
+        setBackgroundImage(images[currentIndex]);
+      }, 2000); // Cambia cada 2 segundos
+    }
+  };
+  const stopPlayImages = () => {
+    if (isPlaying) {
+      setIsPlaying(false);
+      clearInterval(intervalRef.current); // Limpia el intervalo
+    }
+  };
   return (
     <div className="photo-frame" onMouseMove={handleStickerMove}>
       <div
@@ -140,6 +176,7 @@ const PhotoFrame = () => {
         <IconEdit className="menu-button" onClick={() => setIsEditPanelOpen(!isEditPanelOpen)}/>
         <IconEffect className="menu-button" onClick={toggleAdorns}/>
         <IconSticker className="menu-button" onClick={() => setIsStickerPanelOpen(true)}/>
+        {isPlaying ? <IconStop className="menu-button" onClick={stopPlayImages}></IconStop> : <IconPlay className="menu-button" onClick={playImages}></IconPlay>}
     </div>
     
     
